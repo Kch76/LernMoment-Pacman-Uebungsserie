@@ -11,21 +11,27 @@ namespace PacmanUebungsserie
     {
         CsharpCanvas canvas;
 
+        // Dies ist der Pacman, mit dem wir spielen wollen
+        Pacman pacman;
+
         /// <summary>
         /// Erstellt eine neue Instanz des Pacmancontrollers
         /// </summary>
         /// <param name="_canvas">Canvas in den gezeichnet werden soll</param>
         public PacmanController(CsharpCanvas _canvas)
         {
-            // den canvas an die lokale Variable übergeben
+            // den CsharpCanvas an die lokale Variable übergeben
             canvas = _canvas;
             
-            // draw Event des Canvas abonieren und einen Eventhandler definieren
+            // draw Event des CsharpCanvas abonieren und einen Eventhandler definieren
             canvas.Draw += Canvas_Draw;
 
-            // der Canvas muss noch initalisiert werden.
+            // der CsharpCanvas muss noch initalisiert werden.
             // wir wollen ein Spiel erstellen und dieses mit 30 Frames pro Sekunde abspielen
-            canvas.InitGame(5);
+            canvas.InitGame(30);
+
+            // erstelle einen Pacman
+            pacman = new Pacman();
         }
                
         /// <summary>
@@ -33,6 +39,17 @@ namespace PacmanUebungsserie
         /// </summary>
         private void Canvas_Draw()
         {
+            // überprüfen, ob eine Taste gedrückt wurde
+            if (canvas.LastPressedKey != System.Windows.Forms.Keys.None)
+            {
+                // Verabeiten des Tastendrucks in Pacman
+                pacman.ProcessKey(canvas.LastPressedKey);
+                // Taste als verarbeitet melden
+                canvas.KeyHandled();
+            }
+
+            // Zeichne Pacman auf den CsharpCanvas
+            canvas.AddPicture(pacman.ImagePath, pacman.LeftCornerX, pacman.LeftCornerY, pacman.Size, pacman.Size, 0);
         }
     }
 }
