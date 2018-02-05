@@ -10,5 +10,5 @@ Für diese Übung wirst du CsharpCanvas verwenden. Diese Bibliothek haben wir er
 Nun aber erstmal genug des Einstiegs, steigen wir gleich in die erste Aufgabe ein.
 
 Aufgabe 1: Pacman bewegen
-Deine erste Aufgabe wird es sein, Pacman auf dem Spielfeld zu platzieren und ihn mit Hilfe der Pfeiltasten bewegen zu können. Pacman soll auf die Pfeiltasten reagieren. Pfeilhoch soll ihn nach oben gehen lassen, Pfeilrunter nach unten und so weiter. Pacman soll dazu eine Klasse bekommen, die ihn repräsentiert.
+Deine erste Aufgabe wird es sein, Pacman auf dem Spielfeld zu platzieren und ihn mit Hilfe der Pfeiltasten bewegen zu können. Pacman soll auf die Pfeiltasten reagieren. Pfeilhoch soll ihn nach oben gehen lassen, Pfeilrunter nach unten und so weiter. Pacman soll dazu eine Klasse bekommen, die ihn repräsentiert. (Eine Musterlösung findest du hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.1)
 
