@@ -15,8 +15,13 @@ namespace PacmanUebungsserie
         [STAThread]
         static void Main()
         {
+            // eine neue Instanz von CsharpCanvas anlegen
             CsharpCanvas canvas = new CsharpCanvas();
-            PacmanController launcher = new PacmanController(canvas);
+
+            // eine neue Instanz des Pacmancontrollers anlegen und den canvas übergeben
+            PacmanController controller = new PacmanController(canvas);
+
+            // canvas starten
             canvas.Setup();
         }
     }
