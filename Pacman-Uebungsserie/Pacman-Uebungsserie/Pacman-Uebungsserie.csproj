@@ -77,8 +77,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Lib\CsharpCanvas.dll" />
-    <Content Include="Ressources\Ghost.gif" />
-    <Content Include="Ressources\Pacman.png" />
+    <Content Include="Ressources\Ghost.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Ressources\Pacman.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
