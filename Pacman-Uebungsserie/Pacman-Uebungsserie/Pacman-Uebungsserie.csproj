@@ -77,6 +77,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Lib\CsharpCanvas.dll" />
+    <Content Include="Ressources\Ghost.gif" />
+    <Content Include="Ressources\Pacman.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
