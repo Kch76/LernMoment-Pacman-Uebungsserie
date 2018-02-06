@@ -24,7 +24,7 @@ namespace PacmanUebungsserie
             canvas = _canvas;
             
             // draw Event des CsharpCanvas abonieren und einen Eventhandler definieren
-            canvas.Draw += Canvas_Draw;
+            canvas.Draw += DrawPacmanAtItsCurrentPosition;
 
             // der CsharpCanvas muss noch initalisiert werden.
             // wir wollen ein Spiel erstellen und dieses mit 30 Frames pro Sekunde abspielen
@@ -37,7 +37,7 @@ namespace PacmanUebungsserie
         /// <summary>
         /// Draw Eventhandler, hier wird gezeichnet
         /// </summary>
-        private void Canvas_Draw()
+        private void DrawPacmanAtItsCurrentPosition()
         {
             // überprüfen, ob eine Taste gedrückt wurde
             if (canvas.LastPressedKey != System.Windows.Forms.Keys.None)
