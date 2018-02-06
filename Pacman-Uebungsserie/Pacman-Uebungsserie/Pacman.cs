@@ -10,7 +10,7 @@ namespace PacmanUebungsserie
     class Pacman
     {
         /// <summary>
-        /// So groß ist die Bewegung, die Pacman bei einem Tastendruck macht
+        /// So viele Pixel bewegt sich Pacman bei einem Tastendruck
         /// </summary>
         public int Step { get { return 10; } }
 
@@ -20,27 +20,27 @@ namespace PacmanUebungsserie
         public string ImagePath { get { return "Ressources/Pacman.png"; } }
 
         /// <summary>
-        /// So groß ist acman
+        /// So viele Pixel ist Pacman Breit und Hoch
         /// </summary>
         public int Size { get { return 40; } }
 
         /// <summary>
-        /// Dies ist die Position von Pacman in X-Richtung
+        /// Dies ist die aktuelle Position (in Pixeln) des Mittelpunktes von Pacman in X-Richtung
         /// </summary>
         public int X { get; private set; }
 
         /// <summary>
-        /// Dies ist die Position von Pacman in Y-Richtung
+        /// Dies ist die aktuelle Position (in Pixeln) des Mittelpunktes von Pacman in Y-Richtung
         /// </summary>
         public int Y { get; private set; }
 
         /// <summary>
-        /// Dies ist die Position der linken oberen Ecke von Pacman in X-Richtung
+        /// Dies ist die aktuelle Position der linken oberen Ecke von Pacman in X-Richtung
         /// </summary>
         public int LeftCornerX { get { return (int)(X - Size / 2); } }
 
         /// <summary>
-        /// Dies ist die Position der linken oberen Ecke von Pacman in Y-Richtung
+        /// Dies ist die aktuelle Position der linken oberen Ecke von Pacman in Y-Richtung
         /// </summary>
         public int LeftCornerY { get { return (int)(Y - Size / 2); } }
 
@@ -56,34 +56,37 @@ namespace PacmanUebungsserie
         }
 
         /// <summary>
-        /// Verarbeitet Tasteneingaben
+        /// Berechnet die neue Position von Pacman anhand eines Tastendrucks
         /// </summary>
         /// <param name="key">Die Taste die verarbeitet werden soll</param>
         public void ProcessKey(Keys key)
         {
-            // bei einem Tastendruck der Pfeiltasten soll eine Bewegung durchgeführt werden.
+            // Pacman bewegt sich durch drücken der Pfeiltasten.
             switch (key)
             {
                 case Keys.Down:
-                    // damit Pacman nicht aus dem Spielfeld läuft, begrenzen wir den Aktionsradius
+                    // Pacman darf nur nach unten gehen, wenn er nicht vom Spielfeld fällt!
                     if (Y + Step < 600 - Size / 2)
                     {
                         Y = Y + Step;
                     }
                     break;
                 case Keys.Up:
+                    // Pacman darf nur nach oben gehen, wenn er nicht vom Spielfeld fällt!
                     if (Y - Step > 0 + Size / 2)
                     {
                         Y = Y - Step;
                     }
                     break;
                 case Keys.Left:
+                    // Pacman darf nur nach links gehen, wenn er nicht vom Spielfeld fällt!
                     if (X - Step > 0 + Size / 2)
                     {
                         X = X - Step;
                     }
                     break;
                 case Keys.Right:
+                    // Pacman darf nur nach rechts gehen, wenn er nicht vom Spielfeld fällt!
                     if (X + Step < 600 - Size / 2)
                     {
                         X = X + Step;
