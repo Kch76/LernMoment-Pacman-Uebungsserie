@@ -43,7 +43,7 @@ namespace PacmanUebungsserie
             if (canvas.LastPressedKey != System.Windows.Forms.Keys.None)
             {
                 // Verabeiten des Tastendrucks in Pacman
-                pacman.ProcessKey(canvas.LastPressedKey);
+                pacman.MoveToNewPosition(canvas.LastPressedKey);
                 // Taste als verarbeitet melden
                 canvas.KeyHandled();
             }

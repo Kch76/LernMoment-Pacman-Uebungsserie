@@ -59,7 +59,7 @@ namespace PacmanUebungsserie
         /// Berechnet die neue Position von Pacman anhand eines Tastendrucks
         /// </summary>
         /// <param name="key">Die Taste die verarbeitet werden soll</param>
-        public void ProcessKey(Keys key)
+        public void MoveToNewPosition(Keys key)
         {
             // Pacman bewegt sich durch drücken der Pfeiltasten.
             switch (key)
