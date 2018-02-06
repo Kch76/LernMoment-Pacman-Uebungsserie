@@ -9,10 +9,10 @@ namespace PacmanUebungsserie
 {
     class PacmanController
     {
-        CsharpCanvas canvas;
+        private CsharpCanvas canvas;
 
         // Dies ist der Pacman, mit dem wir spielen wollen
-        Pacman pacman;
+        private Pacman pacman;
 
         /// <summary>
         /// Erstellt eine neue Instanz des Pacmancontrollers
