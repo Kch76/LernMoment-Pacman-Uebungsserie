@@ -10,5 +10,9 @@ Für diese Übung wirst du CsharpCanvas verwenden. Diese Bibliothek haben wir er
 Nun aber erstmal genug des Einstiegs, steigen wir gleich in die erste Aufgabe ein.
 
 Aufgabe 1: Pacman bewegen
-Deine erste Aufgabe wird es sein, Pacman auf dem Spielfeld zu platzieren und ihn mit Hilfe der Pfeiltasten bewegen zu können. Pacman soll auf die Pfeiltasten reagieren. Pfeilhoch soll ihn nach oben gehen lassen, Pfeilrunter nach unten und so weiter. Pacman soll dazu eine Klasse bekommen, die ihn repräsentiert. (Eine Musterlösung findest du hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.1)
+Deine erste Aufgabe wird es sein, Pacman auf dem Spielfeld zu platzieren und ihn mit Hilfe der Pfeiltasten bewegen zu können. Pacman soll auf die Pfeiltasten reagieren. Pfeilhoch soll ihn nach oben gehen lassen, Pfeilrunter nach unten und so weiter. Pacman soll dazu eine Klasse bekommen, die ihn repräsentiert. 
+Eine Musterlösung findest du hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.1
 
+Aufgabe 2: Labyrinthe zeichnen
+Als zweite Aufgabe soll ein Labyrinth gezeichnet werden. Für das Labyrinth ist es wichtig, dass Pacman noch hindurch passt und die Wege erreichbar sind. Hier musst du aufpassen, dass die Abstände mindestens so groß sind, wie Pacman groß ist. In der Beispiellösung hat Pacman eine Schrittweite, wenn dies in deiner Lösung auch so ist muss es möglich sein, mit einem Schritt in die Mitte eines Durchgangs zu gelangen, sonst könnte es schwierig bis unmöglich sein, das Labyrinth abzulaufen. Um zu überprüfen, ob dein Labyrinth ablaufbar ist, kannst du es einfach mit Pacman ablaufen. Tipp: du kannst dein Spielfeld auf dem Papier in ein passendes Raster aufteilen und dich beim Positionieren der Mauern an diesem Raster orientieren.
+Eine Musterlösung findest du hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.2
