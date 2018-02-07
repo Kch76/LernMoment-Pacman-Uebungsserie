@@ -12,7 +12,7 @@ namespace PacmanUebungsserie
         /// <summary>
         /// So viele Pixel bewegt sich Pacman bei einem Tastendruck
         /// </summary>
-        public int Step { get { return 10; } }
+        public int Step { get { return 5; } }
 
         /// <summary>
         /// Dieser Pfad beschreibt, wo das Bild liegt, das Pacman darstellt
