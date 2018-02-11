@@ -40,3 +40,9 @@ Aufgabe 5: Punkte einsetzten
 Bei einem Pacmanspiel soll Pacman Punkte einsammeln können, dazu müssen punkte im Speil vorhanden sein. Deine Aufgabe ist es jetzt, Punkte so in dien Labyrinth einzusetzen, dass diese von Pacman überschritten werden können. Tipp: falls du dein Labyrinth in einem bestimmten Raster eingezeichnet hast, kannst du für deine Überlegungen das gleiche Raster zum Verteilen der Punkte verwenden. Um dein Ergebnis zu überprüfen, kannst du schauen, ob an allen Stellen, die von Pacman erreicht werden können jetzt Punkte zu sehen sind und diese Überlaufen werden können.
 
 Eine Musterlösung findest die hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.5
+
+Aufgabe 6: Punkte fressen und zählen
+
+Damit ein Spiel daraus wird, müssen die Punkte entfernt werden, wenn die von Pacman gefressen werden. Außerdem soll ein Spielstand angezeigt werden. Überprüfe also ob Pacman einen Punkt überläuft, wenn dies der Fall ist, entferne den Punkt und erhöhe den Punktezähler des Spiels. Um deine Lösung zu überprüfen, laufe dein Labyrinth ab und versuche alle Punkte einzusammeln, zähle vorher alle Punkte und überprüfe, ob der Punktezähler entsprechend hoch aufsummiert wird. Tipp: die Aufgabe ähnelt inhaltlich Aufgabe 3.
+
+Eine Musterlösung findest die hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.6
