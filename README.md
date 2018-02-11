@@ -29,3 +29,8 @@ Pacman darf während der Bewegung nicht gegen eine Wand laufen. Wenn Pacman eine
 
 Eine Musterlösung findest die hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.3
 
+Aufgabe 4: Pacman automatisch laufen lassen
+
+Pacman soll sich jetzt automatisch bewegen, das heißt, ein Tastendruck auf die Pfeiltasten ändert die Richtung, die Bewegung läuft jedoch unabhängig davon weiter. Pacman soll sich entsprechend drehen, so dass er immer in die Laufrichtung schaut. Beachte dabei, dass die Bewegungen nicht zu schnell werden, man soll das Spiel auch noch spielen können. Versuche das Labyrinth abzulaufen. Sollte die Geschwindigkeit nicht gut gewählt sein, pass diese ab.
+
+Eine Musterlösung findest die hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.4
