@@ -17,6 +17,22 @@ namespace PacmanUebungsserie
         // Dies ist das Labyrinth, welches gerade verwendet wird.
         private Maze maze;
 
+        private int _Score = 0;
+        /// <summary>
+        /// Spielpunktezähler
+        /// </summary>
+        private int Score
+        {
+            get { return _Score; }
+            set
+            {
+                _Score = value;
+                // Setzte den Wert des Punktezählers auf CsharpCanvas, damit wird er angezeigt.
+                canvas.Score = value;
+            }
+        }
+
+
         private bool IsRunningGame = false;
 
         /// <summary>
@@ -77,6 +93,10 @@ namespace PacmanUebungsserie
                 // Zeichne Pacman auf den CsharpCanvas
                 canvas.AddPicture(pacman.ImagePath, pacman.LeftCornerX, pacman.LeftCornerY, pacman.Size, pacman.Size, pacman.Angle);
 
+                // Überprüfen, ob Punkte erziehlt wurden, wenn ja -> Punktezähler erhöhen
+                if (maze.Pills.CheckAndRemovePill(pacman.X, pacman.Y))
+                    Score++;
+
                 // Überprüfen, ob Pacman an der neuen Position mit der Wand kollidiert.
                 if (maze.CheckCollision(pacman))
                 {
@@ -108,6 +128,8 @@ namespace PacmanUebungsserie
         public void StartGame()
         {
             pacman = new Pacman();
+            // Punkte zähler auf Null setzten
+            Score = 0;
             GenerateMaze();
 
             // Das Speilergebnis wird zurückgesetzt, dadurch wird dieses nicht mehr angezeigt.

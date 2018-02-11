@@ -34,6 +34,25 @@ namespace PacmanUebungsserie
         public List<Pill> GetPills()
         {
             return _Pills;
-        }       
+        }
+
+        /// <summary>
+        /// Überprüft, ob an der angegebenen Stelle ein Punkt ist. Erreichte Punkte werden entfernt
+        /// </summary>
+        /// <param name="x">Position die geprüft werden soll in X-Richtung</param>
+        /// <param name="y">Position die geprüft werden soll in Y-Richtung</param>
+        /// <returns>true, wenn ein Punkt erreicht und entfernt wurde</returns>
+        public bool CheckAndRemovePill(int x, int y)
+        {
+            foreach (var pill in _Pills)
+            {
+                if (pill.X == x && pill.Y == y)
+                {
+                    _Pills.Remove(pill);
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
