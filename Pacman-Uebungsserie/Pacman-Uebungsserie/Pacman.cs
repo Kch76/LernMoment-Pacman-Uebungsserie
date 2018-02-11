@@ -25,6 +25,16 @@ namespace PacmanUebungsserie
         public int Size { get { return 40; } }
 
         /// <summary>
+        /// Gibt den Winkel an, in welche Richtung Pacman läuft
+        /// </summary>
+        public int Angle { get; private set; }
+
+        /// <summary>
+        /// Gibt an, wie schnell sich PAcman bewegt
+        /// </summary>
+        public int Speed { get; private set; }
+
+        /// <summary>
         /// Dies ist die aktuelle Position (in Pixeln) des Mittelpunktes von Pacman in X-Richtung
         /// </summary>
         public int X { get; private set; }
@@ -53,45 +63,91 @@ namespace PacmanUebungsserie
             // Festlegen der Startposition von Pacman
             X = 300;
             Y = 300;
+            Speed = 5;
         }
 
         /// <summary>
-        /// Berechnet die neue Position von Pacman anhand eines Tastendrucks
+        /// Verarbeitet Tastendrücke unbd ändert entsprechend die Richtung
         /// </summary>
-        /// <param name="key">Die Taste die verarbeitet werden soll</param>
-        public void MoveToNewPosition(Keys key)
+        /// <param name="key">´Betätigte Taste</param>
+        public void ProcessKey(Keys key)
         {
-            // Pacman bewegt sich durch drücken der Pfeiltasten.
+            // Passt den Winkel entsprechend der gedrückte Taste an
             switch (key)
             {
                 case Keys.Down:
-                    // Pacman darf nur nach unten gehen, wenn er nicht vom Spielfeld fällt!
-                    if (Y + Step < 600 - Size / 2)
-                    {
-                        Y = Y + Step;
-                    }
+                    Angle = 90;
                     break;
                 case Keys.Up:
-                    // Pacman darf nur nach oben gehen, wenn er nicht vom Spielfeld fällt!
-                    if (Y - Step > 0 + Size / 2)
-                    {
-                        Y = Y - Step;
-                    }
+                    Angle = 270;
                     break;
                 case Keys.Left:
-                    // Pacman darf nur nach links gehen, wenn er nicht vom Spielfeld fällt!
-                    if (X - Step > 0 + Size / 2)
-                    {
-                        X = X - Step;
-                    }
+                    Angle = 180;
                     break;
                 case Keys.Right:
-                    // Pacman darf nur nach rechts gehen, wenn er nicht vom Spielfeld fällt!
-                    if (X + Step < 600 - Size / 2)
-                    {
-                        X = X + Step;
-                    }
+                    Angle = 0;
                     break;
+            }
+        }
+
+        /// <summary>
+        /// Frame zähler zur Geschwindigkeitskontrolle
+        /// </summary>
+        private int frames = 0;
+
+        /// <summary>
+        /// Ein Schritt von PAcman wird verarbeitet
+        /// </summary>
+        public void ProcessPackmanStep()
+        {
+            // Pacman wird nur bewegt, wenn eine Bewegung an der Reihe ist
+            if (frames == 0)
+            {
+                // Position von Pacman wird entsprechend des Winkels verändert
+                switch (Angle)
+                {
+                    case 90:
+                        Y = Y + Step;
+                        break;
+                    case 270:
+                        Y = Y - Step;
+                        break;
+                    case 180:
+                        X = X - Step;
+                        break;
+                    case 0:
+                        X = X + Step;
+                        break;
+                }
+
+                // Packman kann un von einem Rand zum nächste springen, solange dort keine Wand ist
+                // siehe dazu Kollisionskontrolle
+                if (X >= 600 || Y >= 600)
+                {
+                    if (Y >= 600)
+                        Y = 5;
+                    if (X >= 600)
+                        X = 5;
+                }
+                else
+                {
+                    if (Y <= 0)
+                        Y = 595;
+                    if (X <= 0)
+                        X = 595;
+                }
+                
+                // in diesem Frame wurde bewegt, deshalb wird frames um 1 erhöht.
+                frames++;
+            }
+            else
+            {
+                // Um die Geschwindigkeit zu begrenzen wird nur in manchen Frames eine Bewegung durchgeführt.
+                // Wie viele Frames keine Bewegung durchgeführt wird, wird mit dem Wert von Speed definiert.
+                // So viele Frames wie in Speed definiert ist, wird keine Bewegung durchgeführt.
+                frames++;
+                if (frames == Speed)
+                { frames = 0; }
             }
         }
     }

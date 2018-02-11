@@ -46,7 +46,7 @@ namespace PacmanUebungsserie
 
             IsRunningGame = true;
         }
-               
+
         /// <summary>
         /// Draw Eventhandler, hier wird gezeichnet
         /// </summary>
@@ -63,9 +63,11 @@ namespace PacmanUebungsserie
                     canvas.SetForegroundColor(System.Drawing.Color.Brown);
                     canvas.AddRectangle(wall.LeftCornerX, wall.LeftCornerY, wall.Width, wall.Height, Fill.Fill);
                 }
-                
+
+                // Pacman bewegen
+                pacman.ProcessPackmanStep();
                 // Zeichne Pacman auf den CsharpCanvas
-                canvas.AddPicture(pacman.ImagePath, pacman.LeftCornerX, pacman.LeftCornerY, pacman.Size, pacman.Size, 0);
+                canvas.AddPicture(pacman.ImagePath, pacman.LeftCornerX, pacman.LeftCornerY, pacman.Size, pacman.Size, pacman.Angle);
 
                 // Überprüfen, ob Pacman an der neuen Position mit der Wand kollidiert.
                 if (maze.CheckCollision(pacman))
@@ -82,7 +84,7 @@ namespace PacmanUebungsserie
         {
             if (canvas.LastPressedKey != System.Windows.Forms.Keys.None)
             {
-                pacman.MoveToNewPosition(canvas.LastPressedKey);
+                pacman.ProcessKey(canvas.LastPressedKey);
 
                 if (canvas.LastPressedKey == System.Windows.Forms.Keys.N)
                 {
