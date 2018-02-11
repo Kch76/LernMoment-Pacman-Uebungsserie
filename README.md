@@ -25,7 +25,7 @@ Eine Musterlösung findest du hier https://github.com/LernMoment/Pacman-Uebungss
 
 Aufgabe 3: Kollisionabfrage zwischen Pacman und dem Labyrinth
 
-Pacman darf während der Bewegung nicht gegen eine Wand laufen. Wenn Pacman eine Wand berührt, soll das Spiel beendet werden. Wenn der Spieler die Taste „N“ drückt, soll ein neues Spiel gestartet werden.
+Pacman darf während der Bewegung nicht gegen eine Wand laufen. Wenn Pacman eine Wand berührt, soll das Spiel beendet werden. Wenn der Spieler die Taste „N“ drückt, soll ein neues Spiel gestartet werden. Um zu überprüfen, ob deine Lösung richtig ist, versuche das Labyrinth abzulaufen, teste auch, ob eine Berührung einer Wand zum Beenden des Spiels führt.
 
 Eine Musterlösung findest die hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.3
 
