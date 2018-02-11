@@ -64,6 +64,14 @@ namespace PacmanUebungsserie
                     canvas.AddRectangle(wall.LeftCornerX, wall.LeftCornerY, wall.Width, wall.Height, Fill.Fill);
                 }
 
+                // Alle Punkte, die in einem Labyrinth enthalten sind Zeichnen
+                foreach (var pill in maze.Pills.GetPills())
+                {
+                    // Meine Punkte sollen in Blau gezeichnet werden.
+                    canvas.SetForegroundColor(System.Drawing.Color.Blue);
+                    canvas.AddCircle(pill.X, pill.Y, pill.Size, Fill.Fill);
+                }
+
                 // Pacman bewegen
                 pacman.ProcessPackmanStep();
                 // Zeichne Pacman auf den CsharpCanvas

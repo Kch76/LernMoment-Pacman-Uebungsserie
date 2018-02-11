@@ -14,11 +14,17 @@ namespace PacmanUebungsserie
         public List<MazeWall> Walls { get; private set; }
 
         /// <summary>
+        /// Beinhaltet alle Punkte eines Labyrinths
+        /// </summary>
+       public Pills Pills { get; private set; }
+
+        /// <summary>
         /// Erzeugt eine neue Instanz eines Labyrinths
         /// </summary>
         public Maze()
         {
             Walls = new List<MazeWall>();
+            Pills = new Pills();
         }
 
         /// <summary>

@@ -53,6 +53,8 @@
     <Compile Include="MazeWall.cs" />
     <Compile Include="Pacman.cs" />
     <Compile Include="PacmanController.cs" />
+    <Compile Include="Pill.cs" />
+    <Compile Include="Pills.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
