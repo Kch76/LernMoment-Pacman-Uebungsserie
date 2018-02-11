@@ -17,6 +17,8 @@ namespace PacmanUebungsserie
         // Dies ist das Labyrinth, welches gerade verwendet wird.
         private Maze maze;
 
+        private bool IsRunningGame = false;
+
         /// <summary>
         /// Erstellt eine neue Instanz des Pacmancontrollers
         /// </summary>
@@ -41,6 +43,8 @@ namespace PacmanUebungsserie
 
             // ein Labyrinth erzeugen, dieses wird dabei direkt maze zugeordnet
             GenerateMaze();
+
+            IsRunningGame = true;
         }
                
         /// <summary>
@@ -48,28 +52,70 @@ namespace PacmanUebungsserie
         /// </summary>
         private void DrawPacmanAtItsCurrentPositionAndRedrawMaze()
         {
-            // Da die Anzeige bei jedem Zeichnen gelöscht wird, muss jedesmal das Labyrinth gezeichnet werden.
-            // Dazu muss für jede Wand ein Rechteckgezeichnet werden.
-            foreach(var wall in maze.Walls)
+            CheckKeys();
+            if (IsRunningGame)
             {
-                // Meine Wände sollen in Braun gezeichnet werden.
-                canvas.SetForegroundColor(System.Drawing.Color.Brown);
-                canvas.AddRectangle(wall.LeftCornerX, wall.LeftCornerY, wall.Width, wall.Height, Fill.Fill);
-            }
+                // Da die Anzeige bei jedem Zeichnen gelöscht wird, muss jedesmal das Labyrinth gezeichnet werden.
+                // Dazu muss für jede Wand ein Rechteckgezeichnet werden.
+                foreach (var wall in maze.Walls)
+                {
+                    // Meine Wände sollen in Braun gezeichnet werden.
+                    canvas.SetForegroundColor(System.Drawing.Color.Brown);
+                    canvas.AddRectangle(wall.LeftCornerX, wall.LeftCornerY, wall.Width, wall.Height, Fill.Fill);
+                }
+                
+                // Zeichne Pacman auf den CsharpCanvas
+                canvas.AddPicture(pacman.ImagePath, pacman.LeftCornerX, pacman.LeftCornerY, pacman.Size, pacman.Size, 0);
 
-            // nur wenn eine Taste gedrückt wurde, wird Pacman bewegt!
-            if (canvas.LastPressedKey != System.Windows.Forms.Keys.None)
-            {
-                // Verabeiten des Tastendrucks in Pacman
-                pacman.MoveToNewPosition(canvas.LastPressedKey);
-                // Taste als verarbeitet melden
-                canvas.KeyHandled();
+                // Überprüfen, ob Pacman an der neuen Position mit der Wand kollidiert.
+                if (maze.CheckCollision(pacman))
+                {
+                    QuitGame();
+                }
             }
-
-            // Zeichne Pacman auf den CsharpCanvas
-            canvas.AddPicture(pacman.ImagePath, pacman.LeftCornerX, pacman.LeftCornerY, pacman.Size, pacman.Size, 0);
         }
 
+        /// <summary>
+        /// Überprüft, ob Tasten berätigt wurden und bearbeitet sie entsprechend
+        /// </summary>
+        private void CheckKeys()
+        {
+            if (canvas.LastPressedKey != System.Windows.Forms.Keys.None)
+            {
+                pacman.MoveToNewPosition(canvas.LastPressedKey);
+
+                if (canvas.LastPressedKey == System.Windows.Forms.Keys.N)
+                {
+                    StartGame();
+                }
+                canvas.KeyHandled();
+            }
+        }
+
+        /// <summary>
+        /// Startet ein neues Spiel
+        /// </summary>
+        public void StartGame()
+        {
+            pacman = new Pacman();
+            GenerateMaze();
+
+            // Das Speilergebnis wird zurückgesetzt, dadurch wird dieses nicht mehr angezeigt.
+            canvas.AddGameResult("");
+
+            IsRunningGame = true;
+        }
+
+        /// <summary>
+        /// Beendet das laufende Spiel
+        /// </summary>
+        private void QuitGame()
+        {
+            IsRunningGame = false;
+            // Es wird ein Spielergebnis mit einem Hinweis für den Start eines neuen Spiels angezeigt
+            canvas.AddGameResult("You Won  Restart: press N");
+        }
+        
         /// <summary>
         /// Erzeugt ein neues Labyrinth
         /// </summary>

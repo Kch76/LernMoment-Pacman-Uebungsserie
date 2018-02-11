@@ -28,6 +28,16 @@ namespace PacmanUebungsserie
         public int LeftCornerY { get; private set; }
 
         /// <summary>
+        /// Dies ist die aktuelle Position der rechten unteren Ecke der Wand in X-Richtung
+        /// </summary>
+        public int RightLowerCornerX { get { return LeftCornerX + Width; } }
+
+        /// <summary>
+        /// Die ist die aktuelle Position der rechten unteren Ecke der Wand in Y-Richtung
+        /// </summary>
+        public int RightLowerCornerY { get { return LeftCornerY + Height; } }
+
+        /// <summary>
         /// So hoch ist die Wand
         /// </summary>
         public int Height { get; private set; }
@@ -36,7 +46,7 @@ namespace PacmanUebungsserie
         /// So breit ist die Wand
         /// </summary>
         public int Width { get; private set; }
-
+        
         /// <summary>
         /// Konstante für die Wandstärke
         /// </summary>
@@ -50,7 +60,7 @@ namespace PacmanUebungsserie
         /// <param name="length">So lang wird die Wand</param>
         /// <param name="direction">In diese Richtung besitzt die Wand die angegebene Länge</param>
         public MazeWall(int x, int y, int length, WallDirection direction)
-        {
+        {           
             // da es sich bei den Wänden beim Zeichnen um Rechtecke handeln wird, müssen
             // die Werte für die Ecken berechnet werden. Außerdem muss abhängig von der Richtung
             // die Länge und die Dicke den entsprechenden Eigenschaften zugeordnet werden
