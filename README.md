@@ -34,3 +34,9 @@ Aufgabe 4: Pacman automatisch laufen lassen
 Pacman soll sich jetzt automatisch bewegen, das heißt, ein Tastendruck auf die Pfeiltasten ändert die Richtung, die Bewegung läuft jedoch unabhängig davon weiter. Pacman soll sich entsprechend drehen, so dass er immer in die Laufrichtung schaut. Beachte dabei, dass die Bewegungen nicht zu schnell werden, man soll das Spiel auch noch spielen können. Versuche das Labyrinth abzulaufen. Sollte die Geschwindigkeit nicht gut gewählt sein, pass diese ab.
 
 Eine Musterlösung findest die hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.4
+
+Aufgabe 5: Punkte einsetzten
+
+Bei einem Pacmanspiel soll Pacman Punkte einsammeln können, dazu müssen punkte im Speil vorhanden sein. Deine Aufgabe ist es jetzt, Punkte so in dien Labyrinth einzusetzen, dass diese von Pacman überschritten werden können. Tipp: falls du dein Labyrinth in einem bestimmten Raster eingezeichnet hast, kannst du für deine Überlegungen das gleiche Raster zum Verteilen der Punkte verwenden. Um dein Ergebnis zu überprüfen, kannst du schauen, ob an allen Stellen, die von Pacman erreicht werden können jetzt Punkte zu sehen sind und diese Überlaufen werden können.
+
+Eine Musterlösung findest die hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.5
