@@ -46,3 +46,9 @@ Aufgabe 6: Punkte fressen und zählen
 Damit ein Spiel daraus wird, müssen die Punkte entfernt werden, wenn die von Pacman gefressen werden. Außerdem soll ein Spielstand angezeigt werden. Überprüfe also ob Pacman einen Punkt überläuft, wenn dies der Fall ist, entferne den Punkt und erhöhe den Punktezähler des Spiels. Um deine Lösung zu überprüfen, laufe dein Labyrinth ab und versuche alle Punkte einzusammeln, zähle vorher alle Punkte und überprüfe, ob der Punktezähler entsprechend hoch aufsummiert wird. Tipp: die Aufgabe ähnelt inhaltlich Aufgabe 3.
 
 Eine Musterlösung findest die hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.6
+
+Aufgabe 7: Level hinzufügen
+
+Um das Spiel etwas interessanter zu gestalten, soll es mehrere Levels geben. Jedes Level besitzt ein eigenes Labyrinth (Labyrinth anlegen siehe Aufgabe 2). Wenn alle Punkte eines Levels aufgefressen sind, wird das nächste Level gestartet. Es soll ein Levelzähler angezeigt werden, der dem Spieler zeigt, in welchem Level er gerade unterwegs ist. Wenn alle Level erfolgreich abgeschlossen wurden, soll dem Spieler eine Siegesmeldung angezeigt werden.
+
+Eine Musterlösung findest die hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.7
