@@ -61,8 +61,8 @@ namespace PacmanUebungsserie
         public Pacman()
         {
             // Festlegen der Startposition von Pacman
-            X = 300;
-            Y = 300;
+            X = 25;
+            Y = 25;
             Speed = 5;
         }
 
