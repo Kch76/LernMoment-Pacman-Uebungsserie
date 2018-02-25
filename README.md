@@ -52,3 +52,10 @@ Aufgabe 7: Level hinzufügen
 Um das Spiel etwas interessanter zu gestalten, soll es mehrere Levels geben. Jedes Level besitzt ein eigenes Labyrinth (Labyrinth anlegen siehe Aufgabe 2). Wenn alle Punkte eines Levels aufgefressen sind, wird das nächste Level gestartet. Es soll ein Levelzähler angezeigt werden, der dem Spieler zeigt, in welchem Level er gerade unterwegs ist. Wenn alle Level erfolgreich abgeschlossen wurden, soll dem Spieler eine Siegesmeldung angezeigt werden.
 
 Eine Musterlösung findest die hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.7
+
+Aufgabe 8: Geister hinzufügen
+
+Pacman muss nicht nur Punkte sammeln, er muss sich auch vor Geistern in Acht nehmen. Deshalb ist jetzt deine Aufgabe Geister ins Spiel einzubringen. Das erste Level soll bereits 2 Geister enthalten. In jedem weiteren Level soll einen weiterer Geist hinzukommen. Überlege dir eine Möglichkeit, Geister in das Labyrinth einzusetzen. Die Geister sollen selbstständig laufen können. Überlegen außerdem, wie die Geister sich spannend bewegen können, so dass sie nicht immer dieselbe Strecke entlang laufen.
+
+
+Eine Musterlösung findest die hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.8
