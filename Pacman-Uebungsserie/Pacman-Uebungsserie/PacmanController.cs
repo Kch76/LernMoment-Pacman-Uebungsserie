@@ -22,6 +22,11 @@ namespace PacmanUebungsserie
         /// </summary>
         private List<Maze> Level;
 
+        /// <summary>
+        /// Liste der Geister
+        /// </summary>
+        private List<Ghost> Ghosts = new List<Ghost>();
+
         private int _LevelCounter = 0;
         /// <summary>
         /// Level Zähler
@@ -39,7 +44,15 @@ namespace PacmanUebungsserie
                         if (value != 0)
                         {
                             maze = Level[_LevelCounter - 1];
+                                                        
                             pacman = new Pacman();
+
+                            // Geister werden generiert
+                            Ghosts.Clear();
+                            for (int i=0;i<= _LevelCounter; i++)
+                            {
+                                Ghosts.Add(new Ghost(Ghosts));
+                            }
                         }
                     }
                     else
@@ -119,6 +132,14 @@ namespace PacmanUebungsserie
                 pacman.ProcessPackmanStep();
                 // Zeichne Pacman auf den CsharpCanvas
                 canvas.AddPicture(pacman.ImagePath, pacman.LeftCornerX, pacman.LeftCornerY, pacman.Size, pacman.Size, pacman.Angle);
+
+                foreach(var ghost in Ghosts)
+                {
+                    // Ghost bewegen
+                    ghost.ProcessGhostStep(maze.CheckCollision(ghost));
+                    // Zeichne Ghost auf den CsharpCanvas
+                    canvas.AddPicture(ghost.ImagePath, ghost.LeftCornerX, ghost.LeftCornerY, ghost.Size, ghost.Size, 0);
+                }
 
                 // Überprüfen, ob Punkte erziehlt wurden, wenn ja -> Punktezähler erhöhen
                 if (maze.Pills.CheckAndRemovePill(pacman.X, pacman.Y))

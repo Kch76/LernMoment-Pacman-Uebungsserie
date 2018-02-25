@@ -55,5 +55,25 @@ namespace PacmanUebungsserie
             }
             return false;
         }
+
+        /// <summary>
+        /// Prüft ob Ghost mit einer Wand des Labyrinths kollidiert
+        /// </summary>
+        /// <param name="pacman">Ghost mit der aktuellen Position</param>
+        /// <returns>False, wenn Ghost mit keiner Wand der Labyrinths kollidiert, sonst true</returns>
+        public bool CheckCollision(Ghost ghost)
+        {
+            foreach (var wall in Walls)
+            {
+                // Überprüfung in X Richtung
+                if (ghost.X + ghost.Size / 2 > wall.LeftCornerX && ghost.X - ghost.Size / 2 < wall.RightLowerCornerX)
+                {
+                    // Überprüfung in Y Richtung, jedoch nur, wenn in X Richtung eine Kollosion vorliegen würde
+                    if (ghost.Y + ghost.Size / 2 > wall.LeftCornerY && ghost.Y - ghost.Size / 2 < wall.RightLowerCornerY)
+                        return true;
+                }
+            }
+            return false;
+        }
     }
 }
