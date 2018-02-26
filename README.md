@@ -71,7 +71,7 @@ Dann kannst du zum Beispiel weiter an den „KI“ der Geister arbeiten, im Mome
 
 Aufgabe 10 (für Fortgeschrittene): Klassen zusammenlegen
 
-Wenn man sich den Code anschaut, gibt es starke Ähnlichkeiten in den Klassen ghost.cs und pacman.cs. Was man dagegen tun kann? Abstrakte Klassen und Vererbung. Schau dir die beiden Klassen an und prüfe, was beide gemeinsam haben und was sie unterscheidet. Entwerfe eine Klasse die die Gemeinsamkeiten implementiert, außerdem kannst du hier evtl. schon die Rümpfe für Methoden hineinlegen, auch wenn diese sich bei beiden abgeleiteten Klassen in der Implementierung unterscheiden.
+Wenn man sich den Code anschaut, gibt es starke Ähnlichkeiten in den Klassen Ghost.cs und Pacman.cs. Was man dagegen tun kann? Abstrakte Klassen und Vererbung. Schau dir die beiden Klassen an und prüfe, was beide gemeinsam haben und was sie unterscheidet. Entwerfe eine Klasse die die Gemeinsamkeiten implementiert, außerdem kannst du hier evtl. schon die Rümpfe für Methoden hineinlegen, auch wenn diese sich bei beiden abgeleiteten Klassen in der Implementierung unterscheiden.
 
 
 Eine Musterlösung findest die hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.10
