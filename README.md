@@ -75,3 +75,9 @@ Wenn man sich den Code anschaut, gibt es starke Ähnlichkeiten in den Klassen Gh
 
 
 Eine Musterlösung findest die hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.10
+
+Aufgabe 11 (für Fortgeschritten): Lange Methoden aufteilen
+
+In den Klassen Ghost und Pacman ist noch je eine sehr lange Methode. Überlege, wie du diese Methode aufteilen kannst, vielleicht gibt es hier auch Gemeinsamkeiten, die dann nur einmal implementiert werden müssen?
+
+Eine Musterlösung findest die hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.11
