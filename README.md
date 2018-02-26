@@ -59,3 +59,9 @@ Pacman muss nicht nur Punkte sammeln, er muss sich auch vor Geistern in Acht neh
 
 
 Eine Musterlösung findest die hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.8
+
+Aufgabe 9: Kollisionsabfrage mit Geistern
+
+Nach der letzten Übung kannst du mit Pacman noch durch die Geister hindurch laufen, dass soll natürlich nicht so bleiben. Um ein das Spiel zu vervollständigen, sollst du nun eine Abfrage einbauen, die dazu führt, dass eine Berührung von Pacman mit einem Geist zum Spielende führt.
+
+Eine Musterlösung findest die hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.9
