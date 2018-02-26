@@ -65,3 +65,13 @@ Aufgabe 9: Kollisionsabfrage mit Geistern
 Nach der letzten Übung kannst du mit Pacman noch durch die Geister hindurch laufen, dass soll natürlich nicht so bleiben. Um ein das Spiel zu vervollständigen, sollst du nun eine Abfrage einbauen, die dazu führt, dass eine Berührung von Pacman mit einem Geist zum Spielende führt.
 
 Eine Musterlösung findest die hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.9
+
+Du bist fertig und hast Lust weiter zu machen?
+Dann kannst du zum Beispiel weiter an den „KI“ der Geister arbeiten, im Moment sind die noch relativ einfach in ihrer Bewegung, überlege z.B. wie die Geister sich immer Richtung Pacman bewegen können. Wenn du darauf keine Lust hast, schau dir die Aufgaben für Fortgeschrittene an.
+
+Aufgabe 10 (für Fortgeschrittene): Klassen zusammenlegen
+
+Wenn man sich den Code anschaut, gibt es starke Ähnlichkeiten in den Klassen Ghost.cs und Pacman.cs. Was man dagegen tun kann? Abstrakte Klassen und Vererbung. Schau dir die beiden Klassen an und prüfe, was beide gemeinsam haben und was sie unterscheidet. Entwerfe eine Klasse die die Gemeinsamkeiten implementiert, außerdem kannst du hier evtl. schon die Rümpfe für Methoden hineinlegen, auch wenn diese sich bei beiden abgeleiteten Klassen in der Implementierung unterscheiden.
+
+
+Eine Musterlösung findest die hier https://github.com/LernMoment/Pacman-Uebungsserie/releases/tag/V1.10
