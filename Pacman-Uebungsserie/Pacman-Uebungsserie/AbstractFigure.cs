@@ -59,6 +59,62 @@ namespace PacmanUebungsserie
         /// <summary>
         /// Frame zähler zur Geschwindigkeitskontrolle
         /// </summary>
-        protected int frames = 0;        
+        protected int frames = 0;
+
+        /// <summary>
+        /// Setzt die Figur an die nächste Position
+        /// </summary>
+        protected void SetNextPosition()
+        {
+            switch (Angle)
+            {
+                case 90:
+                    Y = Y + Step;
+                    break;
+                case 270:
+                    Y = Y - Step;
+                    break;
+                case 180:
+                    X = X - Step;
+                    break;
+                case 0:
+                    X = X + Step;
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Macht einen Schritt durch den Spielfeldrand
+        /// </summary>
+        protected void StepThroughTheSidelines()
+        {
+            if (X >= 600 || Y >= 600)
+            {
+                if (Y >= 600)
+                    Y = 5;
+                if (X >= 600)
+                    X = 5;
+            }
+            else
+            {
+                if (Y <= 0)
+                    Y = 595;
+                if (X <= 0)
+                    X = 595;
+            }
+        }
+
+        /// <summary>
+        /// Verarbeitet die Frames, in denen keine Bewegung stattgefunden hat
+        /// </summary>
+        protected void ProcessEmptyFrames()
+        {
+            // Um die Geschwindigkeit zu begrenzen wird nur in manchen Frames eine Bewegung durchgeführt.
+            // Wie viele Frames keine Bewegung durchgeführt wird, wird mit dem Wert von Speed definiert.
+            // So viele Frames wie in Speed definiert ist, wird keine Bewegung durchgeführt.
+            frames++;
+            if (frames == Speed)
+            { frames = 0; }
+        }
     }
 }

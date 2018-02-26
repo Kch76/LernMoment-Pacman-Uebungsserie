@@ -8,94 +8,80 @@ namespace PacmanUebungsserie
         private int stepsInOneWay = 0;
         public void ProcessGhostStep(bool collision)
         {
-            var rnd = new Random();
             if (frames == 0)
             {
                 // Sollte der Geist mit einer Wand kollidieren, dreht er um
                 if (collision)
                 {
-                    switch (Angle)
-                    {
-                        case 90: Angle = 270; break;
-                        case 180: Angle = 0; break;
-                        case 270: Angle = 90; break;
-                        case 0: Angle = 180; break;
-                    }
+                    TurnAround();
                 }
 
-                // Um die Bewegung ien bisschen Zzufällig zu gestalten, wird manchmal die Richtung geändert.
+                // Um die Bewegung ien bisschen zufällig zu gestalten, wird manchmal die Richtung geändert.
                 // Die Richtung wird nur gewechslet, wenn sich der Geist gerade auf einer Punktlinie befindet
                 if (stepsInOneWay >= 3 && X % 50 == 25 && Y % 50 == 25)
                 {
-                    if ((rnd.Next() % 2 == 1))
-                    {
-                        var newAngle = new Random();
-                        var oldAngle = Angle;
-                        switch (newAngle.Next(1, 4))
-                        {
-                            case 1:
-                                Angle = 90;
-                                break;
-                            case 2:
-                                Angle = 180;
-                                break;
-                            case 3:
-                                Angle = 270;
-                                break;
-                            case 4:
-                                Angle = 0;
-                                break;
-                        }
-                        if (oldAngle != Angle)
-                        {
-                            stepsInOneWay = 0;
-                        }
-                    }
+                    SetNewAngle();
                 }
 
                 // Geist bewegen
-                switch (Angle)
-                {
-                    case 90:
-                        Y = Y + Step;
-                        break;
-                    case 270:
-                        Y = Y - Step;
-                        break;
-                    case 180:
-                        X = X - Step;
-                        break;
-                    case 0:
-                        X = X + Step;
-                        break;
-                }
+                SetNextPosition();
 
                 // Geist duch den Spielfeldrand laufen lassen
-                if (X >= 600 || Y >= 600)
-                {
-                    if (Y >= 600)
-                        Y = 5;
-                    if (X >= 600)
-                        X = 5;
-                }
-                else
-                {
-                    if (Y <= 0)
-                        Y = 595;
-                    if (X <= 0)
-                        X = 595;
-                }
+                StepThroughTheSidelines();
+
                 stepsInOneWay++;
                 frames++;
             }
             else
             {
-                // Um die Geschwindigkeit zu begrenzen wird nur in manchen Frames eine Bewegung durchgeführt.
-                // Wie viele Frames keine Bewegung durchgeführt wird, wird mit dem Wert von Speed definiert.
-                // So viele Frames wie in Speed definiert ist, wird keine Bewegung durchgeführt.
-                frames++;
-                if (frames == Speed)
-                { frames = 0; }
+                ProcessEmptyFrames();
+            }
+        }
+
+        /// <summary>
+        /// Dreht die Richtung um 180 Grad
+        /// </summary>
+        private void TurnAround()
+        {
+            switch (Angle)
+            {
+                case 90: Angle = 270; break;
+                case 180: Angle = 0; break;
+                case 270: Angle = 90; break;
+                case 0: Angle = 180; break;
+            }
+        }
+
+        /// <summary>
+        /// Legt eine neue, zufällige Bewegungsrichtung fest
+        /// </summary>
+        private void SetNewAngle()
+        {
+            var rnd = new Random();
+            if ((rnd.Next() % 2 == 1))
+            {
+                var oldAngle = Angle;
+                var newAngle = new Random();
+
+                switch (newAngle.Next(1, 4))
+                {
+                    case 1:
+                        Angle = 90;
+                        break;
+                    case 2:
+                        Angle = 180;
+                        break;
+                    case 3:
+                        Angle = 270;
+                        break;
+                    case 4:
+                        Angle = 0;
+                        break;
+                }
+                if (oldAngle != Angle)
+                {
+                    stepsInOneWay = 0;
+                }
             }
         }
 

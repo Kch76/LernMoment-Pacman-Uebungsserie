@@ -50,50 +50,18 @@ namespace PacmanUebungsserie
             if (frames == 0)
             {
                 // Position von Pacman wird entsprechend des Winkels verändert
-                switch (Angle)
-                {
-                    case 90:
-                        Y = Y + Step;
-                        break;
-                    case 270:
-                        Y = Y - Step;
-                        break;
-                    case 180:
-                        X = X - Step;
-                        break;
-                    case 0:
-                        X = X + Step;
-                        break;
-                }
+                SetNextPosition();
 
                 // Packman kann un von einem Rand zum nächste springen, solange dort keine Wand ist
                 // siehe dazu Kollisionskontrolle
-                if (X >= 600 || Y >= 600)
-                {
-                    if (Y >= 600)
-                        Y = 5;
-                    if (X >= 600)
-                        X = 5;
-                }
-                else
-                {
-                    if (Y <= 0)
-                        Y = 595;
-                    if (X <= 0)
-                        X = 595;
-                }
+                StepThroughTheSidelines();
 
                 // in diesem Frame wurde bewegt, deshalb wird frames um 1 erhöht.
                 frames++;
             }
             else
             {
-                // Um die Geschwindigkeit zu begrenzen wird nur in manchen Frames eine Bewegung durchgeführt.
-                // Wie viele Frames keine Bewegung durchgeführt wird, wird mit dem Wert von Speed definiert.
-                // So viele Frames wie in Speed definiert ist, wird keine Bewegung durchgeführt.
-                frames++;
-                if (frames == Speed)
-                { frames = 0; }
+                ProcessEmptyFrames();
             }
         }
     }
