@@ -1,63 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PacmanUebungsserie
 {
-    class Ghost
+    class Ghost : AbstractFigure
     {
-        /// <summary>
-        /// So viele Pixel bewegt sich Pacman bei einem Tastendruck
-        /// </summary>
-        public int Step { get { return 5; } }
-
-        /// <summary>
-        /// Dieser Pfad beschreibt, wo das Bild liegt, das Pacman darstellt
-        /// </summary>
-        public string ImagePath { get { return "Ressources/Ghost.gif"; } }
-
-        /// <summary>
-        /// So viele Pixel ist Pacman Breit und Hoch
-        /// </summary>
-        public int Size { get { return 40; } }
-
-        /// <summary>
-        /// Gibt den Winkel an, in welche Richtung Pacman läuft
-        /// </summary>
-        public int Angle { get; private set; }
-
-        /// <summary>
-        /// Gibt an, wie schnell sich PAcman bewegt
-        /// </summary>
-        public int Speed { get; private set; }
-
-        /// <summary>
-        /// Dies ist die aktuelle Position (in Pixeln) des Mittelpunktes von Pacman in X-Richtung
-        /// </summary>
-        public int X { get; private set; }
-
-        /// <summary>
-        /// Dies ist die aktuelle Position (in Pixeln) des Mittelpunktes von Pacman in Y-Richtung
-        /// </summary>
-        public int Y { get; private set; }
-
-        /// <summary>
-        /// Dies ist die aktuelle Position der linken oberen Ecke von Pacman in X-Richtung
-        /// </summary>
-        public int LeftCornerX { get { return (int)(X - Size / 2); } }
-
-        /// <summary>
-        /// Dies ist die aktuelle Position der linken oberen Ecke von Pacman in Y-Richtung
-        /// </summary>
-        public int LeftCornerY { get { return (int)(Y - Size / 2); } }
-
-        /// <summary>
-        /// Frame zähler zur Geschwindigkeitskontrolle
-        /// </summary>
-        private int frames = 0;
-
         private int stepsInOneWay = 0;
         public void ProcessGhostStep(bool collision)
         {
@@ -158,6 +105,8 @@ namespace PacmanUebungsserie
         /// <param name="ghosts">neuer Geist</param>
         public Ghost(List<Ghost> ghosts)
         {
+            ImagePath = "Ressources/Ghost.gif";
+
             // Startposition festlegen
             // um die Startposition zufällig zu wählen, wird eine zufällige Position festgelegt und mit dem Ratsreschritt multipliziert
             do

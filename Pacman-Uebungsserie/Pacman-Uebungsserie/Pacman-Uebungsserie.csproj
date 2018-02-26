@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractFigure.cs" />
     <Compile Include="Ghost.cs" />
     <Compile Include="Maze.cs" />
     <Compile Include="MazeWall.cs" />
