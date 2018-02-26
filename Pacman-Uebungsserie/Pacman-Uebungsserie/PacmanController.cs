@@ -146,7 +146,7 @@ namespace PacmanUebungsserie
                     Score++;
 
                 // Überprüfen, ob Pacman an der neuen Position mit der Wand kollidiert.
-                if (maze.CheckCollision(pacman))
+                if (maze.CheckCollision(pacman) || CheckGhostCollision())
                 {
                     QuitGame(false);
                 }
@@ -233,7 +233,22 @@ namespace PacmanUebungsserie
 
             return level;
         }
-        
+
+        /// <summary>
+        /// Prüft für alle Geister, ob eine Kollision vorliegt
+        /// </summary>
+        /// <returns>true, wenn es eine Kollision gibt, sonst false</returns>
+        private bool CheckGhostCollision()
+        {
+            foreach (var ghost in Ghosts)
+            {
+                // Ein paar Anpassungen um mit den Koordinaten und der Größe der einzelnen Teile klar zu kommen
+                if (ghost.CheckCollision(pacman))
+                    return true;
+            }
+            return false;
+        }
+
         /// <summary>
         /// Erzeugt ein neues Labyrinth für Level 1
         /// </summary>

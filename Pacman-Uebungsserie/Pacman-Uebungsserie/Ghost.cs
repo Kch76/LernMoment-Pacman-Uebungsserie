@@ -178,9 +178,24 @@ namespace PacmanUebungsserie
         /// <returns></returns>
         private bool CheckOtherGhosts(List<Ghost> ghosts)
         {
-            foreach(var ghost in ghosts)
+            foreach (var ghost in ghosts)
             {
                 if (ghost.X == X && ghost.Y == Y)
+                    return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Überpfüft, ob dieser Geist mit Pacman kollidiert
+        /// </summary>
+        /// <param name="pacman">Pacman</param>
+        /// <returns>true, wenn es eine Kollision gibt, sonst false</returns>
+        public bool CheckCollision(Pacman pacman)
+        {
+            if (X + Size / 2 > pacman.LeftCornerX && X - Size / 2 < pacman.LeftCornerX + pacman.Size)
+            {
+                if (Y + Size / 2 > pacman.LeftCornerY && Y - Size / 2 < pacman.LeftCornerY + pacman.Size)
                     return true;
             }
             return false;
